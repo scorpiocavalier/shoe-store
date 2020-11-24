@@ -24,24 +24,24 @@ Open the starter project in Android Studio
 
 4. [DONE] Create a new navigation xml file
 
-5. Create a new Login destination.
+5. [DONE] Create a new Login destination.
 
-   * Include email and password labels 
+   * [DONE] Include email and password labels 
 
-   - Include email and password fields
-   - Create buttons for creating a new login and logging in with an existing account
-   - Clicking either button should navigate to the Welcome Screen.
+   - [DONE] Include email and password fields
+   - [DONE] Create buttons for creating a new login and logging in with an existing account
+   - [DONE] Clicking either button should navigate to the Welcome Screen.
 
-6. Create a new Welcome screen destination that includes:
+6. [DONE] Create a new Welcome screen destination that includes:
 
-   * A new layout
-   * At least 2 textviews
-   * A navigation button with actions to navigate to the instructions screen
+   * [DONE] A new layout
+   * [DONE] At least 2 textViews
+   * [DONE] A navigation button with actions to navigate to the instructions screen
 
 7. Create a new Instruction destination that includes:
 
    * A new layout
-   * At least 2 textviews
+   * At least 2 textViews
    * A navigation button with actions to navigate to the shoe list screen
 
 8. Create a class that extends ViewModel

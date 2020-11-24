@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?><!--<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    tools:context=".WelcomeFragment">-->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/welcome_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_vertical"
+    android:orientation="vertical">
+
+  <TextView
+      android:id="@+id/welcome_message_text"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center_horizontal"
+      android:paddingTop="16sp"
+      android:paddingBottom="16sp"
+      android:text="@string/welcome_message" />
+
+  <TextView
+      android:id="@+id/read_instructions_text"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center_horizontal"
+      android:paddingTop="16sp"
+      android:paddingBottom="16sp"
+      android:text="@string/read_instructions" />
+
+  <Button
+      android:id="@+id/instructions_button"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center_horizontal"
+      android:layout_marginTop="16sp"
+      android:layout_marginBottom="16sp"
+      android:padding="16sp"
+      android:text="@string/instructions" />
+</LinearLayout>
+
+    <!--</FrameLayout>-->
