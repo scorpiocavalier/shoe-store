@@ -14,4 +14,7 @@
   <string name="welcome_message">Welcome to the Shoe Store</string>
   <string name="read_instructions">Read the instructions on how to use the app</string>
   <string name="instructions">Instructions</string>
+  <string name="instruction1">1. Add your items</string>
+  <string name="instruction2">2. View your items</string>
+  <string name="view_shoe_list_button">View Shoe List</string>
 </resources>

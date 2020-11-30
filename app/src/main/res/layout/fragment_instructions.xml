@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/welcome_layout"
+    android:id="@+id/instructions_layout"
     style="@style/verticalLinearLayoutStyle">
 
   <TextView
-      android:id="@+id/welcome_message_text"
+      android:id="@+id/instruction1_text"
       style="@style/textLayoutStyle"
-      android:text="@string/welcome_message" />
+      android:text="@string/instruction1" />
 
   <TextView
-      android:id="@+id/read_instructions_text"
+      android:id="@+id/instruction2_text"
       style="@style/textLayoutStyle"
-      android:text="@string/read_instructions" />
+      android:text="@string/instruction2" />
 
   <Button
-      android:id="@+id/instructions_button"
+      android:id="@+id/shoe_list_button"
       style="@style/buttonLayoutStyle"
-      android:text="@string/instructions" />
+      android:text="@string/view_shoe_list_button" />
 
 </LinearLayout>
