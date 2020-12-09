@@ -3,4 +3,11 @@
   <dimen name="fragment_horizontal_margin">16dp</dimen>
   <dimen name="fragment_vertical_margin">16dp</dimen>
   <dimen name="text_margin">16dp</dimen>
+  <dimen name="margin_top">40dp</dimen>
+  <dimen name="margin_left">40dp</dimen>
+  <dimen name="margin_right">40dp</dimen>
+  <dimen name="label_width">100sp</dimen>
+  <dimen name="label_height">40sp</dimen>
+  <dimen name="button_width">150sp</dimen>
+  <dimen name="editText_width">200sp</dimen>
 </resources>
