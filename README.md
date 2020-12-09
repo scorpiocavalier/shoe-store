@@ -27,10 +27,9 @@ Open the starter project in Android Studio
 5. [DONE] Create a new Login destination.
 
    * [DONE] Include email and password labels 
-
-   - [DONE] Include email and password fields
-   - [DONE] Create buttons for creating a new login and logging in with an existing account
-   - [DONE] Clicking either button should navigate to the Welcome Screen.
+   * [DONE] Include email and password fields
+   * [DONE] Create buttons for creating a new login and logging in with an existing account
+   * [DONE] Clicking either button should navigate to the Welcome Screen.
 
 6. [DONE] Create a new Welcome screen destination that includes:
 

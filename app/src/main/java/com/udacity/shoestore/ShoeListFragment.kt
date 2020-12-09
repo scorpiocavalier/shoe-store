@@ -23,7 +23,7 @@ class ShoeListFragment : Fragment() {
 
     floatingActionButton.setOnClickListener(
       Navigation.createNavigateOnClickListener(
-        R.id.action_shoeListFragment_to_shoeDetailFragment
+        ShoeListFragmentDirections.actionShoeListFragmentToShoeDetailFragment()
       )
     )
   }

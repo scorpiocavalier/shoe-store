@@ -44,7 +44,7 @@ class InstructionsFragment : Fragment() {
 
     shoe_list_button.setOnClickListener(
       Navigation.createNavigateOnClickListener(
-        R.id.action_instructionsFragment_to_shoeListFragment
+        InstructionsFragmentDirections.actionInstructionsFragmentToShoeListFragment()
       )
     )
   }

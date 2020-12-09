@@ -43,7 +43,7 @@ class WelcomeFragment : Fragment() {
 
     instructions_button.setOnClickListener(
       Navigation.createNavigateOnClickListener(
-        R.id.action_welcomeFragment_to_instructionsFragment
+        WelcomeFragmentDirections.actionWelcomeFragmentToInstructionsFragment()
       )
     )
   }

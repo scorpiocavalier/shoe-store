@@ -65,7 +65,10 @@ class LoginFragment : Fragment() {
         }
         loginResult.success?.let {
           updateUiWithUser(it)
-          view.findNavController().navigate(R.id.action_loginFragment_to_welcomeFragment)
+          // Navigate user to Welcome Screen
+          view.findNavController().navigate(
+            LoginFragmentDirections.actionLoginFragmentToWelcomeFragment()
+          )
         }
       })
 
@@ -115,7 +118,7 @@ class LoginFragment : Fragment() {
   }
 
   private fun updateUiWithUser(model: LoggedInUserView) {
-    val welcome = getString(R.string.welcome) + model.displayName
+    val welcome = getString(R.string.welcome) + model.displayName + "!"
     // TODO : initiate successful logged in experience
     val appContext = context?.applicationContext ?: return
     Toast.makeText(appContext, welcome, Toast.LENGTH_LONG).show()
