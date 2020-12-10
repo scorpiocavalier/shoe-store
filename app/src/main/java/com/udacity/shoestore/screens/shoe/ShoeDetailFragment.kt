@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.udacity.shoestore.R
+import com.udacity.shoestore.screens.shoe.model.Shoe
 import kotlinx.android.synthetic.main.fragment_shoe_detail.*
 
 class ShoeDetailFragment : Fragment() {
