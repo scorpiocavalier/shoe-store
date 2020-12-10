@@ -1,4 +1,4 @@
-package com.udacity.shoestore.data
+package com.udacity.shoestore.screens.login.data
 
 /**
  * A generic class that holds a value with its loading status.

@@ -14,7 +14,7 @@ Open the starter project in the latest stable version of Android Studio.
 
 Open the starter project in Android Studio
 
-##Steps
+## Steps
 
 1. [DONE] Open the starter project in Android Studio
 
@@ -37,26 +37,26 @@ Open the starter project in Android Studio
    * [DONE] At least 2 textViews
    * [DONE] A navigation button with actions to navigate to the instructions screen
 
-7. Create a new Instruction destination that includes:
+7. [DONE] Create a new Instruction destination that includes:
 
    * [DONE] A new layout
    * [DONE] At least 2 textViews
    * [DONE] A navigation button with actions to navigate to the shoe list screen
 
-8. Create a class that extends ViewModel
+8. [DONE] Create a class that extends ViewModel
 
-   *  Use a LiveData field that returns the list of shoes
+   * [  1  ] Use a LiveData field that returns the list of shoes
 
-9. Create a new Shoe List destination that includes:
+9. [DONE] Create a new Shoe List destination that includes:
 
    * [DONE] A new layout
    * [DONE] A ScrollView
    * [DONE] A LinearLayout for Shoe Items
    * [DONE] A FloatingActionButton with an action to navigate to the shoe detail screen
 
-10. In MainActivity, setup the nav controller with the toolbar and an AppBarConfiguration.
+10. [  2  ] In MainActivity, setup the nav controller with the toolbar and an AppBarConfiguration.
 
-11. Create a new Shoe Detail destination that includes:
+11. [  3  ] Create a new Shoe Detail destination that includes:
 
     * [DONE] A new layout
     * [DONE] A TextView label and EditView for the
@@ -65,13 +65,13 @@ Open the starter project in Android Studio
       * [DONE] Shoe Size
       * [DONE] Description
     * [DONE] A Cancel button with an action to navigate back to the shoe list screen
-    * [DONE] A Save button with an action to navigate back to the shoe list screen and add a new Shoe to the Shoe View Model
+    * [ 3 ] A Save button with an action to navigate back to the shoe list screen and add a new Shoe to the Shoe View Model
 
-12. Make sure you can’t go back to onboarding screens
+12. [  4  ] Make sure you can’t go back to onboarding screens
 
-13. In the Shoe List screen:
+13. [  5  ] In the Shoe List screen:
 
-    * Use an Activity level ViewModel to hold a list of Shoes (use by activityViewModels)
-    * Observe the shoes variable from the ViewModel
-    * Use DataBindingUtil to inflate the shoe_list layout
-    * Add a new layout item into the scrollview for each shoe.
+    * [  5  ] Use an Activity level ViewModel to hold a list of Shoes (use by activityViewModels)
+    * [  5  ] Observe the shoes variable from the ViewModel
+    * [  5  ] Use DataBindingUtil to inflate the shoe_list layout
+    * [  5  ] Add a new layout item into the scrollview for each shoe.

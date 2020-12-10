@@ -1,6 +1,6 @@
-package com.udacity.shoestore.data
+package com.udacity.shoestore.screens.login.data
 
-import com.udacity.shoestore.data.model.LoggedInUser
+import com.udacity.shoestore.screens.login.data.model.LoggedInUser
 
 /**
  * Class that requests authentication and user information from the remote data source and

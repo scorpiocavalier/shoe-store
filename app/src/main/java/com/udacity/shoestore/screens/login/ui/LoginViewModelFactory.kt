@@ -1,9 +1,9 @@
-package com.udacity.shoestore.ui.login
+package com.udacity.shoestore.screens.login.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.udacity.shoestore.data.LoginDataSource
-import com.udacity.shoestore.data.LoginRepository
+import com.udacity.shoestore.screens.login.data.LoginDataSource
+import com.udacity.shoestore.screens.login.data.LoginRepository
 
 /**
  * ViewModel provider factory to instantiate LoginViewModel.

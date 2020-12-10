@@ -1,12 +1,12 @@
-package com.udacity.shoestore.ui.login
+package com.udacity.shoestore.screens.login.ui
 
 import android.util.Patterns
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.udacity.shoestore.R
-import com.udacity.shoestore.data.LoginRepository
-import com.udacity.shoestore.data.Result
+import com.udacity.shoestore.screens.login.data.LoginRepository
+import com.udacity.shoestore.screens.login.data.Result
 
 class LoginViewModel(private val loginRepository: LoginRepository) : ViewModel() {
 

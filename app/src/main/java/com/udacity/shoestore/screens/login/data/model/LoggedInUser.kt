@@ -1,4 +1,4 @@
-package com.udacity.shoestore.data.model
+package com.udacity.shoestore.screens.login.data.model
 
 /**
  * Data class that captures user information for logged in users retrieved from LoginRepository
