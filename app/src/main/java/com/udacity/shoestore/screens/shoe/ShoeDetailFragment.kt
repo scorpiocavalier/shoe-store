@@ -7,19 +7,14 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentShoeDetailBinding
+import timber.log.Timber
 
 class ShoeDetailFragment : Fragment() {
 
   private lateinit var binding: FragmentShoeDetailBinding
-  private val titleLabel = "Shoe Details"
-  private val shoeNameLabel = "Name"
-  private val shoeCompanyLabel = "Company"
-  private val shoeSizeLabel = "Size"
-  private val shoeDescriptionLabel = "Description"
-  private val cancelBtn = "Cancel"
-  private val saveBtn = "Save"
 
   override fun onCreateView(
     inflater: LayoutInflater,
@@ -33,44 +28,13 @@ class ShoeDetailFragment : Fragment() {
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
 
-//    binding.apply {
-//      titleLabel = titleLabel
-//      shoeNameLabel = shoeNameLabel
-//      shoeCompanyLabel = shoeCompanyLabel
-//      shoeSizeLabel = shoeSizeLabel
-//      shoeDescriptionLabel = shoeDescriptionLabel
-//      cancelBtn = cancelBtn
-//      saveBtn = saveBtn
-//
-//      // UI is refreshed with the value in the updated binding object
-////      invalidateAll()
-//
-//      saveButton.setOnClickListener(
-//        Navigation.createNavigateOnClickListener(
-//          ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoeListFragment()
-//        )
-//      )
-//
-//      cancelButton.setOnClickListener(
-//        Navigation.createNavigateOnClickListener(
-//          ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoeListFragment()
-//        )
-//      )
-//    }
-
-    binding.titleLabel = titleLabel
-    binding.shoeNameLabel = shoeNameLabel
-    binding.shoeCompanyLabel = shoeCompanyLabel
-    binding.shoeSizeLabel = shoeSizeLabel
-    binding.shoeDescriptionLabel = shoeDescriptionLabel
-    binding.cancelBtn = cancelBtn
-    binding.saveBtn = saveBtn
-
-    binding.saveButton.setOnClickListener(
-      Navigation.createNavigateOnClickListener(
-        ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoeListFragment()
-      )
-    )
+    binding.saveButton.setOnClickListener {
+      Timber.i(binding.shoeName)
+      Timber.i(binding.shoeCompany)
+      Timber.i(binding.shoeSize)
+      Timber.i(binding.shoeDescription)
+      findNavController().navigate(ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoeListFragment())
+    }
 
     binding.cancelButton.setOnClickListener(
       Navigation.createNavigateOnClickListener(
