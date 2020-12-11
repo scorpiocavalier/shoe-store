@@ -1,17 +1,23 @@
 package com.udacity.shoestore.screens.shoe
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class ShoeListViewModel : ViewModel() {
-  // Using MutableLiveData and LiveData
-  // for encapsulation and live data observer pattern.
-  private val _shoeList = MutableLiveData<MutableList<String>>()
-  val shoeList: LiveData<MutableList<String>>
-    get() = shoeList
-
+//  // Using MutableLiveData and LiveData
+//  // for encapsulation and live data observer pattern.
+//  private val _shoes = MutableLiveData<MutableList<Shoe>>()
+//  val shoes: LiveData<MutableList<Shoe>> = _shoes
+//
 //  init {
-//    (_shoeList.value)?.add("Adidas")
+//    (_shoes.value)?.add(Shoe(
+//      "Adidas Ultraboost",
+//      10.0,
+//      "Adidas",
+//      "Most comfortable shoes ever created."))
+//  }
+//
+//  fun addShoe(shoe: Shoe): LiveData<MutableList<Shoe>> {
+//    (_shoes.value)?.add(shoe)
+//    return _shoes
 //  }
 }

@@ -4,39 +4,75 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.udacity.shoestore.R
-import com.udacity.shoestore.screens.shoe.model.Shoe
-import kotlinx.android.synthetic.main.fragment_shoe_detail.*
+import com.udacity.shoestore.databinding.FragmentShoeDetailBinding
 
 class ShoeDetailFragment : Fragment() {
+
+  private lateinit var binding: FragmentShoeDetailBinding
+  private val titleLabel = "Shoe Details"
+  private val shoeNameLabel = "Name"
+  private val shoeCompanyLabel = "Company"
+  private val shoeSizeLabel = "Size"
+  private val shoeDescriptionLabel = "Description"
+  private val cancelBtn = "Cancel"
+  private val saveBtn = "Save"
 
   override fun onCreateView(
     inflater: LayoutInflater,
     container: ViewGroup?,
     savedInstanceState: Bundle?
-  ): View? {
-    return inflater.inflate(R.layout.fragment_shoe_detail, container, false)
+  ): View {
+    binding = DataBindingUtil.inflate(inflater, R.layout.fragment_shoe_detail, container, false)
+    return binding.root
   }
 
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
 
-    // Create a new Shoe with the form data
-    val name = "Adidas Ultraboost"
-    val shoeSize = 10.0
-    val company = "Adidas"
-    val description = "Most comfortable shoes ever created."
-    var newShoe = Shoe(name, shoeSize, company, description)
+//    binding.apply {
+//      titleLabel = titleLabel
+//      shoeNameLabel = shoeNameLabel
+//      shoeCompanyLabel = shoeCompanyLabel
+//      shoeSizeLabel = shoeSizeLabel
+//      shoeDescriptionLabel = shoeDescriptionLabel
+//      cancelBtn = cancelBtn
+//      saveBtn = saveBtn
+//
+//      // UI is refreshed with the value in the updated binding object
+////      invalidateAll()
+//
+//      saveButton.setOnClickListener(
+//        Navigation.createNavigateOnClickListener(
+//          ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoeListFragment()
+//        )
+//      )
+//
+//      cancelButton.setOnClickListener(
+//        Navigation.createNavigateOnClickListener(
+//          ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoeListFragment()
+//        )
+//      )
+//    }
 
-    save_button.setOnClickListener(
+    binding.titleLabel = titleLabel
+    binding.shoeNameLabel = shoeNameLabel
+    binding.shoeCompanyLabel = shoeCompanyLabel
+    binding.shoeSizeLabel = shoeSizeLabel
+    binding.shoeDescriptionLabel = shoeDescriptionLabel
+    binding.cancelBtn = cancelBtn
+    binding.saveBtn = saveBtn
+
+    binding.saveButton.setOnClickListener(
       Navigation.createNavigateOnClickListener(
         ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoeListFragment()
       )
     )
 
-    cancel_button.setOnClickListener(
+    binding.cancelButton.setOnClickListener(
       Navigation.createNavigateOnClickListener(
         ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoeListFragment()
       )

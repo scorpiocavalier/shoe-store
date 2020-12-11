@@ -1,5 +1,6 @@
 package com.udacity.shoestore.screens.login.ui
 
+import android.content.Context
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -7,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
+import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ProgressBar
@@ -65,6 +67,10 @@ class LoginFragment : Fragment() {
         }
         loginResult.success?.let {
           updateUiWithUser(it)
+          // Hide Keyboard on successful login
+          val imm =
+            view.context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+          imm.hideSoftInputFromWindow(view.windowToken, 0)
           // Navigate user to Welcome Screen
           view.findNavController().navigate(
             LoginFragmentDirections.actionLoginFragmentToWelcomeFragment()
@@ -119,7 +125,6 @@ class LoginFragment : Fragment() {
 
   private fun updateUiWithUser(model: LoggedInUserView) {
     val welcome = getString(R.string.welcome) + model.displayName + "!"
-    // TODO : initiate successful logged in experience
     val appContext = context?.applicationContext ?: return
     Toast.makeText(appContext, welcome, Toast.LENGTH_LONG).show()
   }

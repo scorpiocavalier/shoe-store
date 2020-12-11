@@ -1,22 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/welcome_layout"
-    style="@style/verticalLinearLayoutStyle">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-  <TextView
-      android:id="@+id/welcome_message_text"
-      style="@style/textLayoutStyle"
-      android:text="@string/welcome_message" />
+  <data>
 
-  <TextView
-      android:id="@+id/read_instructions_text"
-      style="@style/textLayoutStyle"
-      android:text="@string/read_instructions" />
+    <variable
+        name="welcomeText"
+        type="String" />
 
-  <Button
-      android:id="@+id/instructions_button"
-      style="@style/buttonLayoutStyle"
-      android:text="@string/instructions" />
+    <variable
+        name="instructionsText"
+        type="String" />
 
-</LinearLayout>
+    <variable
+        name="buttonText"
+        type="String" />
+  </data>
+
+  <LinearLayout
+      android:id="@+id/welcome_layout"
+      style="@style/verticalLinearLayoutStyle">
+
+    <TextView
+        android:id="@+id/welcome_message_text"
+        style="@style/textLayoutStyle"
+        android:text="@={welcomeText}" />
+
+    <TextView
+        android:id="@+id/read_instructions_text"
+        style="@style/textLayoutStyle"
+        android:text="@={instructionsText}" />
+
+    <Button
+        android:id="@+id/instructions_button"
+        style="@style/buttonLayoutStyle"
+        android:text="@={buttonText}" />
+
+  </LinearLayout>
+</layout>

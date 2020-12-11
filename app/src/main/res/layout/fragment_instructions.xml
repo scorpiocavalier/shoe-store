@@ -1,22 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/instructions_layout"
-    style="@style/verticalLinearLayoutStyle">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-  <TextView
-      android:id="@+id/instruction1_text"
-      style="@style/textLayoutStyle"
-      android:text="@string/instruction1" />
+  <data>
 
-  <TextView
-      android:id="@+id/instruction2_text"
-      style="@style/textLayoutStyle"
-      android:text="@string/instruction2" />
+    <variable
+        name="instruction1"
+        type="String" />
 
-  <Button
-      android:id="@+id/shoe_list_button"
-      style="@style/buttonLayoutStyle"
-      android:text="@string/view_shoe_list_button" />
+    <variable
+        name="instruction2"
+        type="String" />
 
-</LinearLayout>
+    <variable
+        name="buttonText"
+        type="String" />
+  </data>
+
+  <LinearLayout
+      android:id="@+id/instructions_layout"
+      style="@style/verticalLinearLayoutStyle">
+
+    <TextView
+        android:id="@+id/instruction1_text"
+        style="@style/textLayoutStyle"
+        android:text="@={instruction1}" />
+
+    <TextView
+        android:id="@+id/instruction2_text"
+        style="@style/textLayoutStyle"
+        android:text="@={instruction2}" />
+
+    <Button
+        android:id="@+id/shoe_list_button"
+        style="@style/buttonLayoutStyle"
+        android:text="@={buttonText}" />
+
+  </LinearLayout>
+</layout>
