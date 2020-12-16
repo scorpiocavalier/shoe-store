@@ -14,10 +14,27 @@ class SharedViewModel : ViewModel() {
   val shoes: LiveData<MutableList<Shoe>> = _shoes
 
   init {
-    (_shoes.value)?.add(
+    _shoes.value = mutableListOf<Shoe>()
+    addShoe(
       Shoe(
         "Adidas Ultraboost",
         10.0,
+        "Adidas",
+        "Most comfortable shoes ever created."
+      )
+    )
+    addShoe(
+      Shoe(
+        "Adidas Ultraboost 2",
+        10.5,
+        "Adidas",
+        "Most comfortable shoes ever created."
+      )
+    )
+    addShoe(
+      Shoe(
+        "Adidas Ultraboost 3",
+        9.5,
         "Adidas",
         "Most comfortable shoes ever created."
       )
