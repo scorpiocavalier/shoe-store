@@ -6,9 +6,6 @@ import androidx.lifecycle.ViewModel
 import com.udacity.shoestore.screens.shoe.model.Shoe
 
 class SharedViewModel : ViewModel() {
-//  * [    ] Observe the shoes variable from the ViewModel
-//  * [    ] Use DataBindingUtil to inflate the shoe_list layout
-//  * [    ] Add a new layout item into the scrollview for each shoe.
 
   private val _shoes = MutableLiveData<MutableList<Shoe>>()
   val shoes: LiveData<MutableList<Shoe>> = _shoes

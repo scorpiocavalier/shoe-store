@@ -20,7 +20,6 @@ class InstructionsFragment : Fragment() {
     savedInstanceState: Bundle?
   ): View {
 
-//    binding = DataBindingUtil.inflate(inflater, R.layout.fragment_instructions, container, false)
     binding = FragmentInstructionsBinding.inflate(inflater, container, false)
     binding.instruction1 = instruction1
     binding.instruction2 = instruction2

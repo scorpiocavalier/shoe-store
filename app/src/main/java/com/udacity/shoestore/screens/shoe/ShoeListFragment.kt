@@ -37,8 +37,8 @@ class ShoeListFragment : Fragment() {
 
     // Attach an Observer to viewModel LiveData variables
     viewModel.shoes.observe(viewLifecycleOwner, Observer<MutableList<Shoe>> { shoes ->
-      for (shoe in shoes) {
-        var newView = View.inflate(context, R.layout.shoe_row, null)
+      shoes.forEach { shoe ->
+        val newView = View.inflate(context, R.layout.shoe_row, null)
         newView.shoeNameTextView.text = shoe.name
         newView.shoeCompanyTextView.text = shoe.company
         newView.shoeSizeTextView.text = shoe.size.toString()
@@ -47,6 +47,7 @@ class ShoeListFragment : Fragment() {
       }
     })
 
+    // Add an event listener for the plus button
     binding.floatingActionButton.setOnClickListener(
       Navigation.createNavigateOnClickListener(
         ShoeListFragmentDirections.actionShoeListFragmentToShoeDetailFragment()
