@@ -1,17 +1,15 @@
 package com.udacity.shoestore.screens.shoe
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.ui.onNavDestinationSelected
 import com.udacity.shoestore.R
 import com.udacity.shoestore.SharedViewModel
 import com.udacity.shoestore.databinding.FragmentShoeListBinding
-import com.udacity.shoestore.screens.shoe.model.Shoe
 import kotlinx.android.synthetic.main.shoe_row.view.*
 
 class ShoeListFragment : Fragment() {
@@ -24,8 +22,8 @@ class ShoeListFragment : Fragment() {
     container: ViewGroup?,
     savedInstanceState: Bundle?
   ): View {
-
     binding = FragmentShoeListBinding.inflate(inflater, container, false)
+    setHasOptionsMenu(true)
     return binding.root
   }
 
@@ -36,7 +34,7 @@ class ShoeListFragment : Fragment() {
     viewModel = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
 
     // Attach an Observer to viewModel LiveData variables
-    viewModel.shoes.observe(viewLifecycleOwner, Observer<MutableList<Shoe>> { shoes ->
+    viewModel.shoes.observe(viewLifecycleOwner, { shoes ->
       shoes.forEach { shoe ->
         val newView = View.inflate(context, R.layout.shoe_row, null)
         newView.shoeNameTextView.text = shoe.name
@@ -53,5 +51,16 @@ class ShoeListFragment : Fragment() {
         ShoeListFragmentDirections.actionShoeListFragmentToShoeDetailFragment()
       )
     )
+  }
+
+  // Inflate menu for log out function
+  override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+    inflater.inflate(R.menu.overflow_menu, menu)
+  }
+
+  // Navigate to login screen when log out item is selected
+  override fun onOptionsItemSelected(item: MenuItem): Boolean {
+    return item.onNavDestinationSelected(findNavController())
+            || super.onOptionsItemSelected(item)
   }
 }
