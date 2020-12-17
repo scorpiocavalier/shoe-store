@@ -9,9 +9,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
@@ -19,17 +16,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.udacity.shoestore.R
+import com.udacity.shoestore.databinding.FragmentLoginBinding
 
 class LoginFragment : Fragment() {
 
   private lateinit var loginViewModel: LoginViewModel
+  private lateinit var binding: FragmentLoginBinding
 
   override fun onCreateView(
     inflater: LayoutInflater,
     container: ViewGroup?,
     savedInstanceState: Bundle?
-  ): View? {
-    return inflater.inflate(R.layout.fragment_login, container, false)
+  ): View {
+    binding = FragmentLoginBinding.inflate(inflater, container, false)
+    return binding.root
   }
 
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -37,31 +37,29 @@ class LoginFragment : Fragment() {
     loginViewModel = ViewModelProvider(this, LoginViewModelFactory())
       .get(LoginViewModel::class.java)
 
-    val usernameEditText = view.findViewById<EditText>(R.id.username_field)
-    val passwordEditText = view.findViewById<EditText>(R.id.password_field)
-    val registerButton = view.findViewById<Button>(R.id.register_button)
-    val loginButton = view.findViewById<Button>(R.id.login_button)
-    val loadingProgressBar = view.findViewById<ProgressBar>(R.id.loading)
-
     loginViewModel.loginFormState.observe(viewLifecycleOwner,
       Observer { loginFormState ->
         if (loginFormState == null) {
           return@Observer
         }
-        registerButton.isEnabled = loginFormState.isDataValid
-        loginButton.isEnabled = loginFormState.isDataValid
-        loginFormState.usernameError?.let {
-          usernameEditText.error = getString(it)
-        }
-        loginFormState.passwordError?.let {
-          passwordEditText.error = getString(it)
+
+        binding.apply {
+          registerButton.isEnabled = loginFormState.isDataValid
+          loginButton.isEnabled = loginFormState.isDataValid
+          loginFormState.usernameError?.let {
+            usernameField
+          }
+          loginFormState.passwordError?.let {
+            passwordField.error = getString(it)
+          }
         }
       })
 
     loginViewModel.loginResult.observe(viewLifecycleOwner,
       Observer { loginResult ->
         loginResult ?: return@Observer
-        loadingProgressBar.visibility = View.GONE
+
+        binding.loading.visibility = View.GONE
         loginResult.error?.let {
           showLoginFailed(it)
         }
@@ -89,42 +87,45 @@ class LoginFragment : Fragment() {
 
       override fun afterTextChanged(s: Editable) {
         loginViewModel.loginDataChanged(
-          usernameEditText.text.toString(),
-          passwordEditText.text.toString()
+          binding.usernameField.text.toString(),
+          binding.passwordField.text.toString()
         )
       }
     }
-    usernameEditText.addTextChangedListener(afterTextChangedListener)
-    passwordEditText.addTextChangedListener(afterTextChangedListener)
-    passwordEditText.setOnEditorActionListener { _, actionId, _ ->
-      if (actionId == EditorInfo.IME_ACTION_DONE) {
+
+    binding.apply {
+      usernameField.addTextChangedListener(afterTextChangedListener)
+      passwordField.addTextChangedListener(afterTextChangedListener)
+      passwordField.setOnEditorActionListener { _, actionId, _ ->
+        if (actionId == EditorInfo.IME_ACTION_DONE) {
+          loginViewModel.login(
+            usernameField.text.toString(),
+            passwordField.text.toString()
+          )
+        }
+        false
+      }
+
+      registerButton.setOnClickListener {
+        loading.visibility = View.VISIBLE
         loginViewModel.login(
-          usernameEditText.text.toString(),
-          passwordEditText.text.toString()
+          usernameField.text.toString(),
+          passwordField.text.toString()
         )
       }
-      false
-    }
 
-    registerButton.setOnClickListener {
-      loadingProgressBar.visibility = View.VISIBLE
-      loginViewModel.login(
-        usernameEditText.text.toString(),
-        passwordEditText.text.toString()
-      )
-    }
-
-    loginButton.setOnClickListener {
-      loadingProgressBar.visibility = View.VISIBLE
-      loginViewModel.login(
-        usernameEditText.text.toString(),
-        passwordEditText.text.toString()
-      )
+      loginButton.setOnClickListener {
+        loading.visibility = View.VISIBLE
+        loginViewModel.login(
+          usernameField.text.toString(),
+          passwordField.text.toString()
+        )
+      }
     }
   }
 
   private fun updateUiWithUser(model: LoggedInUserView) {
-    val welcome = getString(R.string.welcome) + model.displayName + "!"
+    val welcome = "${getString(R.string.welcome)}, ${model.displayName}!"
     val appContext = context?.applicationContext ?: return
     Toast.makeText(appContext, welcome, Toast.LENGTH_LONG).show()
   }

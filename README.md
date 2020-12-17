@@ -45,7 +45,7 @@ Open the starter project in Android Studio
 
 8. [DONE] Create a class that extends ViewModel
 
-   * [  0  ] Use a LiveData field that returns the list of shoes
+   * [DONE] Use a LiveData field that returns the list of shoes
 
 9. [DONE] Create a new Shoe List destination that includes:
 
@@ -54,9 +54,9 @@ Open the starter project in Android Studio
    * [DONE] A LinearLayout for Shoe Items
    * [DONE] A FloatingActionButton with an action to navigate to the shoe detail screen
 
-10. [  3  ] In MainActivity, setup the nav controller with the toolbar and an AppBarConfiguration.
+10. [  1  ] In MainActivity, setup the nav controller with the toolbar and an AppBarConfiguration.
 
-11. [  2  ] Create a new Shoe Detail destination that includes:
+11. [DONE] Create a new Shoe Detail destination that includes:
 
     * [DONE] A new layout
     * [DONE] A TextView label and EditView for the
@@ -65,13 +65,13 @@ Open the starter project in Android Studio
       * [DONE] Shoe Size
       * [DONE] Description
     * [DONE] A Cancel button with an action to navigate back to the shoe list screen
-    * [ 2 ] A Save button with an action to navigate back to the shoe list screen and add a new Shoe to the Shoe View Model
+    * [DONE] A Save button with an action to navigate back to the shoe list screen and add a new Shoe to the Shoe View Model
 
 12. [DONE] Make sure you can’t go back to onboarding screens
 
-13. [  1  ] In the Shoe List screen:
+13. [DONE] In the Shoe List screen:
 
     * [DONE] Use an Activity level ViewModel to hold a list of Shoes (use by activityViewModels)
-    * [  1  ] Observe the shoes variable from the ViewModel
-    * [  1  ] Use DataBindingUtil to inflate the shoe_list layout
-    * [  1  ] Add a new layout item into the scrollview for each shoe.
+    * [DONE] Observe the shoes variable from the ViewModel
+    * [DONE] Use DataBindingUtil to inflate the shoe_list layout
+    * [DONE] Add a new layout item into the scrollview for each shoe.
