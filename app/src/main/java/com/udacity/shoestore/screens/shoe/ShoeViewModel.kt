@@ -1,11 +1,10 @@
-package com.udacity.shoestore
+package com.udacity.shoestore.screens.shoe
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.udacity.shoestore.screens.shoe.model.Shoe
 
-class SharedViewModel : ViewModel() {
+class ShoeViewModel : ViewModel() {
 
   private val _shoes = MutableLiveData<MutableList<Shoe>>()
   val shoes: LiveData<MutableList<Shoe>> = _shoes

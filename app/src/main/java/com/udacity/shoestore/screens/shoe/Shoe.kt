@@ -1,4 +1,4 @@
-package com.udacity.shoestore.screens.shoe.model
+package com.udacity.shoestore.screens.shoe
 
 data class Shoe(
   val name: String, val size: Double, val company: String, val description: String

@@ -3,19 +3,18 @@ package com.udacity.shoestore.screens.shoe
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.onNavDestinationSelected
 import com.udacity.shoestore.R
-import com.udacity.shoestore.SharedViewModel
 import com.udacity.shoestore.databinding.FragmentShoeListBinding
 import kotlinx.android.synthetic.main.shoe_row.view.*
 
 class ShoeListFragment : Fragment() {
 
   private lateinit var binding: FragmentShoeListBinding
-  private lateinit var viewModel: SharedViewModel
+  private val model: ShoeViewModel by activityViewModels()
 
   override fun onCreateView(
     inflater: LayoutInflater,
@@ -30,11 +29,8 @@ class ShoeListFragment : Fragment() {
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
 
-    // Always use a ViewModelProvider to instantiate a ViewModel
-    viewModel = ViewModelProvider(requireActivity()).get(SharedViewModel::class.java)
-
     // Attach an Observer to viewModel LiveData variables
-    viewModel.shoes.observe(viewLifecycleOwner, { shoes ->
+    model.shoes.observe(viewLifecycleOwner, { shoes ->
       shoes.forEach { shoe ->
         val newView = View.inflate(context, R.layout.shoe_row, null)
         newView.shoeNameTextView.text = shoe.name
