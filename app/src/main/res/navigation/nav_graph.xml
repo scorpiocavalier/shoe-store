@@ -29,11 +29,11 @@
     <action
         android:id="@+id/action_welcomeFragment_to_instructionsFragment"
         app:destination="@id/instructionsFragment"
-        app:enterAnim="@anim/fragment_fade_enter"
+        app:enterAnim="@anim/slide_in_right"
         app:exitAnim="@anim/slide_out_left"
         app:launchSingleTop="true"
-        app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-        app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+        app:popEnterAnim="@anim/slide_in_left"
+        app:popExitAnim="@anim/slide_out_right" />
   </fragment>
 
   <fragment
@@ -72,16 +72,6 @@
       android:id="@+id/shoeDetailFragment"
       android:name="com.udacity.shoestore.screens.shoe.ShoeDetailFragment"
       android:label="fragment_shoe_detail"
-      tools:layout="@layout/fragment_shoe_detail">
-    <action
-        android:id="@+id/action_shoeDetailFragment_to_shoeListFragment"
-        app:destination="@id/shoeListFragment"
-        app:enterAnim="@anim/slide_in_left"
-        app:exitAnim="@anim/slide_out_right"
-        app:launchSingleTop="true"
-        app:popEnterAnim="@anim/slide_in_left"
-        app:popExitAnim="@anim/slide_out_right"
-        app:popUpTo="@id/shoeListFragment" />
-  </fragment>
+      tools:layout="@layout/fragment_shoe_detail" />
 
 </navigation>

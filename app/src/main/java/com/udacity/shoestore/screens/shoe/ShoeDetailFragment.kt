@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.databinding.FragmentShoeDetailBinding
 
@@ -28,22 +27,22 @@ class ShoeDetailFragment : Fragment() {
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
 
-    binding.saveButton.setOnClickListener {
-      model.addShoe(
-        Shoe(
-          binding.shoeName!!,
-          binding.shoeSize!!.toDouble(),
-          binding.shoeCompany!!,
-          binding.shoeDescription!!
+    binding.apply {
+      saveButton.setOnClickListener {
+        model.addShoe(
+          Shoe(
+            shoeName!!,
+            shoeSize!!.toDouble(),
+            shoeCompany!!,
+            shoeDescription!!
+          )
         )
-      )
-      findNavController().navigate(ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoeListFragment())
-    }
+        findNavController().navigateUp()
+      }
 
-    binding.cancelButton.setOnClickListener(
-      Navigation.createNavigateOnClickListener(
-        ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoeListFragment()
-      )
-    )
+      cancelButton.setOnClickListener {
+        findNavController().navigateUp()
+      }
+    }
   }
 }
